@@ -7,7 +7,7 @@ $ErrorActionPreference = 'Stop'
 $root = $PSScriptRoot
 $dist = Join-Path $root 'dist'
 $staging = Join-Path $dist 'staging'
-$version = '0.3.2'
+$version = '0.3.3'
 $zipName = "dsh-phone-bridge-$version.zip"
 
 if (Test-Path $staging) { Remove-Item $staging -Recurse -Force }
@@ -15,9 +15,9 @@ New-Item -ItemType Directory -Force -Path $staging | Out-Null
 
 Copy-Item (Join-Path $root 'phone-bridge') (Join-Path $staging 'phone-bridge') -Recurse -Force
 Copy-Item (Join-Path $root 'install.ps1') $staging -Force
-Copy-Item (Join-Path $root '安装手机桥.cmd') $staging -Force
-Copy-Item (Join-Path $root '卸载手机桥.cmd') $staging -Force
-Copy-Item (Join-Path $root '安装说明.md') $staging -Force
+Copy-Item (Join-Path $root '安装连接器.cmd') $staging -Force
+Copy-Item (Join-Path $root '卸载连接器.cmd') $staging -Force
+Copy-Item (Join-Path $root '连接器说明.md') $staging -Force
 
 $zip = Join-Path $dist $zipName
 if (Test-Path $zip) { Remove-Item $zip -Force }

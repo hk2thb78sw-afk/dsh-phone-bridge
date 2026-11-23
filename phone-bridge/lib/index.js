@@ -1,4 +1,4 @@
-// 手机桥：让同一局域网里的手机通过浏览器指挥本机的 DSH Agent。
+// 连接器：让同一局域网里的手机通过浏览器指挥本机的 DSH Agent。
 //
 // 做法（Phase A）：在局域网另起一个带配对门槛的 HTTP 服务，把请求反向代理到本机
 // 的 DSH Web 服务，并复用进程内的 launch token 换出合法 cookie。手机上看到的就是
@@ -116,7 +116,7 @@ export function apply(ctx, config = {}) {
       writeStatus({ port, addresses: urls });
       return;
     }
-    log(`端口 ${port} 一直没释放，手机桥没有启动；请确认没有第二个 DSH 在跑`);
+    log(`端口 ${port} 一直没释放，连接器没有启动；请确认没有第二个 DSH 在跑`);
     writeStatus({ error: `port ${port} in use` });
   };
 

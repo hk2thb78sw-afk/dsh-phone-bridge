@@ -1,6 +1,6 @@
-﻿# DSH 手机桥 · 安装 / 卸载（Windows）
+﻿# DSH 连接器 · 安装 / 卸载（Windows）
 #
-# 双击「安装手机桥.cmd」或「卸载手机桥.cmd」即可；也可以在 PowerShell 里：
+# 双击「安装连接器.cmd」或「卸载连接器.cmd」即可；也可以在 PowerShell 里：
 #   powershell -ExecutionPolicy Bypass -File .\install.ps1              # 安装
 #   powershell -ExecutionPolicy Bypass -File .\install.ps1 -Uninstall   # 卸载
 #
@@ -141,7 +141,7 @@ $installed = $package.dependencies -and ($package.dependencies.PSObject.Properti
 # 不带参数且已安装：问一下要卸载还是重装
 if (-not $Uninstall -and -not $Force -and $installed) {
   Write-Host ''
-  Write-Host '检测到这台电脑已经装了手机桥。' -ForegroundColor Yellow
+  Write-Host '检测到这台电脑已经装了连接器。' -ForegroundColor Yellow
   $answer = (Read-Host '  [U] 卸载    [R] 重新安装    [Enter] 退出').Trim().ToUpper()
   if ($answer -eq 'U') { $Uninstall = $true }
   elseif ($answer -ne 'R') { Write-Ok '没有做任何改动。'; exit 0 }
@@ -151,7 +151,7 @@ if (-not $Uninstall -and -not $Force -and $installed) {
 
 if ($Uninstall) {
   if (-not $installed) {
-    Write-Warn2 '这台电脑没有装手机桥，无需卸载。'
+    Write-Warn2 '这台电脑没有装连接器，无需卸载。'
     exit 0
   }
 
@@ -177,7 +177,7 @@ if ($Uninstall) {
   }
 
   Write-Host ''
-  Write-Host '卸载完成。完全退出 DSH 桌面端再打开一次，手机桥就彻底不再运行。' -ForegroundColor Green
+  Write-Host '卸载完成。完全退出 DSH 桌面端再打开一次，连接器就彻底不再运行。' -ForegroundColor Green
   exit 0
 }
 
@@ -256,4 +256,4 @@ Write-Host '  2) 重启后在浏览器打开：' -NoNewline
 Write-Host ' http://127.0.0.1:4870/__phone/desktop' -ForegroundColor Cyan
 Write-Host '  3) 页面上会显示配对码和手机可用的地址；手机连同一个 Wi-Fi 后打开地址、输码'
 Write-Host ''
-Write-Host '卸载：双击「卸载手机桥.cmd」，或 powershell -ExecutionPolicy Bypass -File .\install.ps1 -Uninstall' -ForegroundColor DarkGray
+Write-Host '卸载：双击「卸载连接器.cmd」，或 powershell -ExecutionPolicy Bypass -File .\install.ps1 -Uninstall' -ForegroundColor DarkGray

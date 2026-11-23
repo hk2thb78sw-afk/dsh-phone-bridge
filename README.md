@@ -1,4 +1,4 @@
-# DSH Phone Bridge（手机桥）
+# DSH Phone Bridge（连接器）
 
 让同一局域网里的手机，用浏览器直接操控电脑上的 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（DSH）。
 
@@ -36,7 +36,7 @@ DSH 桌面端只监听 `127.0.0.1`，而且每个进程有一个随机启动 tok
 
 1. 下载 [Releases](../../releases) 里的 `dsh-phone-bridge-*.zip`，解压到任意目录；
 2. **完全退出** DSH 桌面端（托盘图标右键退出）；
-3. 双击 `安装手机桥.cmd`（或 `powershell -ExecutionPolicy Bypass -File .\install.ps1`）；
+3. 双击 `安装连接器.cmd`（或 `powershell -ExecutionPolicy Bypass -File .\install.ps1`）；
 4. 重新打开 DSH；
 5. 浏览器打开 `http://127.0.0.1:4870/__phone/desktop`，页面上有配对码和二维码。
 
@@ -72,7 +72,7 @@ DSH 桌面端只监听 `127.0.0.1`，而且每个进程有一个随机启动 tok
 ## 卸载
 
 1. 完全退出 DSH；
-2. 双击 `卸载手机桥.cmd`；
+2. 双击 `卸载连接器.cmd`；
 3. 重新打开 DSH。
 
 配对记录保存在 `%USERPROFILE%\.dsh\phone-bridge\`，默认保留；加 `-PurgeState` 一起删除。
@@ -115,7 +115,7 @@ MIT，见 [LICENSE](LICENSE)。第三方组件见 [THIRD_PARTY_NOTICES.md](THIRD
 
 The plugin runs inside the DSH host process, starts a reverse proxy on port `4870`, mints a valid browser cookie from the in-process launch token (DSH still issues and verifies the cookie), and adds a pairing gate of its own. The phone sees the same DSH instance and the same sessions.
 
-- Install: unzip a release, quit DSH, run `安装手机桥.cmd`, restart DSH, open `http://127.0.0.1:4870/__phone/desktop`.
+- Install: unzip a release, quit DSH, run `安装连接器.cmd`, restart DSH, open `http://127.0.0.1:4870/__phone/desktop`.
 - Pair: scan the QR code or type the 6-digit code on the phone (same LAN).
 - Security: a paired phone has owner-level access. LAN only; plain HTTP; admin endpoints are loopback-only.
 

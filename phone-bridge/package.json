@@ -1,6 +1,6 @@
 {
   "name": "dsh-phone-bridge",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Command your DSH desktop agent from a phone on the same LAN, with no internet.",
   "type": "module",
   "license": "MIT",

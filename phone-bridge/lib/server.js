@@ -9,7 +9,7 @@ import { qrSvg } from './qr.js';
 import { scanLan } from './scan.js';
 
 // 插件版本，跟 package.json 同步；用来核对「正在运行的到底是哪一版」。
-export const BRIDGE_VERSION = '0.3.2';
+export const BRIDGE_VERSION = '0.3.3';
 
 const HOP_BY_HOP = new Set([
   'connection',
@@ -331,7 +331,7 @@ export function createLanServer(options) {
     } catch (error) {
       log?.(`获取上游凭据失败: ${error?.message ?? error}`);
       res.writeHead(503, { 'content-type': 'text/plain; charset=utf-8' });
-      res.end('手机桥暂时无法连接到 DSH（上游凭据不可用）');
+      res.end('连接器暂时无法连接到 DSH（上游凭据不可用）');
       return;
     }
 

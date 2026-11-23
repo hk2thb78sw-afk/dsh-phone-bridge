@@ -1,4 +1,4 @@
-# DSH 手机桥（dsh-phone-bridge）
+# DSH 连接器（dsh-phone-bridge）
 
 让同一局域网里的手机，用浏览器直接指挥电脑上的 DeepSeek Harness（DSH）。
 不需要公网、不需要账号、不装 App。
@@ -28,14 +28,14 @@ DSH 桌面端本身只监听 `127.0.0.1`，而且每个进程有一个启动 tok
 
 1. 解压到那台电脑上任意位置；
 2. **完全退出** DSH 桌面端（托盘图标右键退出）；
-3. 双击 `安装手机桥.cmd`（或 `install.ps1` 右键「使用 PowerShell 运行」）；
+3. 双击 `安装连接器.cmd`（或 `install.ps1` 右键「使用 PowerShell 运行」）；
    若被策略拦截：`powershell -ExecutionPolicy Bypass -File .\install.ps1`
 4. 看到「安装完成」后重新打开 DSH；
 5. 浏览器打开 `http://127.0.0.1:4870/__phone/desktop`。
 
 脚本会：把插件复制到 `%LOCALAPPDATA%\dsh-phone-bridge`、备份并修改 `%USERPROFILE%\.dsh\profiles\desktop\package.json`、用 DSH 自带的 pnpm 安装（不联网、不需要管理员），失败自动回滚。安装完可以删掉 U 盘里那份。
 
-> 已经装过时双击 `安装手机桥.cmd` 会先问「[U] 卸载 / [R] 重装 / 回车退出」，不会直接覆盖。
+> 已经装过时双击 `安装连接器.cmd` 会先问「[U] 卸载 / [R] 重装 / 回车退出」，不会直接覆盖。
 
 > 改 profile 的依赖不会热加载，必须重启一次 DSH。
 
@@ -69,7 +69,7 @@ pnpm install --ignore-scripts
 每台电脑各装一次（第三节）。装完重启后：
 
 - 手机收藏任意一台的 **`http://<那台IP>:4870/__phone/machines`**，就是「我的电脑」列表；
-- 页面会扫描同网段、列出所有装了手机桥的机器（机器名取 Windows 主机名），点一下直接进；
+- 页面会扫描同网段、列出所有装了连接器的机器（机器名取 Windows 主机名），点一下直接进；
 - **每台第一次都要配对一次**（浏览器的 cookie 按主机隔离），配对码在该台电脑上打开 `/__phone/desktop` 查看；
 - 扫描不到的机器（路由器开了客户端隔离、跨网段）可以在列表页「手动添加」`IP` 或 `IP:端口`。
 
@@ -111,8 +111,8 @@ pnpm install --ignore-scripts
 
 安装和卸载共用同一个脚本，双击对应入口即可：
 
-- 安装：双击 `安装手机桥.cmd`
-- 卸载：双击 `卸载手机桥.cmd`
+- 安装：双击 `安装连接器.cmd`
+- 卸载：双击 `卸载连接器.cmd`
 - 命令行：`powershell -ExecutionPolicy Bypass -File .\install.ps1 -Uninstall`
 
 卸载会从 profile 移除依赖与 bundle、跑一次 pnpm 摘掉链接、删除 `%LOCALAPPDATA%\dsh-phone-bridge`；**保留**配对记录（`$DSH_HOME/phone-bridge`）。要连配对记录一起删：

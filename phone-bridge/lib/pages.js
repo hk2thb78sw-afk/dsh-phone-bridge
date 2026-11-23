@@ -129,7 +129,7 @@ export function machinesPage({ port }) {
     '我的电脑',
     `
     <h1>我的电脑</h1>
-    <p class="muted">同一局域网里装了手机桥的 DSH 电脑。点一台就能进去；第一次连的电脑会让你输入它屏幕上的配对码。</p>
+    <p class="muted">同一局域网里装了连接器的 DSH 电脑。点一台就能进去；第一次连的电脑会让你输入它屏幕上的配对码。</p>
 
     <div class="card">
       <div class="row"><strong>扫描结果</strong><button id="refresh">重新扫描</button></div>
@@ -146,7 +146,7 @@ export function machinesPage({ port }) {
       </div>
     </div>
 
-    <p class="muted">每台电脑第一次都要配对一次——这是浏览器的 cookie 按「主机+端口」隔离决定的，绕不过去。配对码在那台电脑上打开手机桥页面就能看到。</p>
+    <p class="muted">每台电脑第一次都要配对一次——这是浏览器的 cookie 按「主机+端口」隔离决定的，绕不过去。配对码在那台电脑上打开连接器页面就能看到。</p>
     <script>
       const MANUAL_KEY = 'dsh-phone-manual-machines';
       const listEl = document.getElementById('list');
@@ -188,7 +188,7 @@ export function machinesPage({ port }) {
         const all = [...found, ...extra];
         listEl.innerHTML = all.length
           ? all.map(card).join('')
-          : '<p class="muted">没有扫描到其它电脑。确认那台也装了手机桥并且没关。</p>';
+          : '<p class="muted">没有扫描到其它电脑。确认那台也装了连接器并且没关。</p>';
       }
 
       async function render() {
@@ -239,9 +239,9 @@ export function desktopPage({ port, upstreamPort, addresses }) {
     : '<p class="muted">没有找到局域网地址，检查一下网络连接。</p>';
 
   return shell(
-    '手机桥 · 配对',
+    '连接器 · 配对',
     `
-    <h1>手机桥</h1>
+    <h1>连接器</h1>
     <p class="muted">手机和电脑在同一个 Wi-Fi / 局域网时，用手机扫描或打开下面的地址，再输入配对码。</p>
 
     <div class="card">
@@ -390,7 +390,7 @@ export function pairPage({ addresses }) {
     '连接到电脑',
     `
     <h1>连接到电脑</h1>
-    <p class="muted">在电脑上打开 <strong>手机桥</strong> 页面，把上面的 6 位配对码输进来。地址：${addresses
+    <p class="muted">在电脑上打开 <strong>连接器</strong> 页面，把上面的 6 位配对码输进来。地址：${addresses
       .map((url) => `<span class="addr" style="display:inline-block">${escapeHtml(url)}</span>`)
       .join(' ') || '—'}</p>
     <div class="card">
