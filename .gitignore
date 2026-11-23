@@ -1,0 +1,24 @@
+# 依赖与构建产物
+node_modules/
+dist/
+*.zip
+*.hap
+*.app
+*.log
+
+# DSH 的本地状态与开发残留
+.ref/
+.qrdep/
+.backup/
+.testhome*/
+.hvigor/
+
+# 系统文件
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 编辑器
+.vscode/
+.idea/
+__pycache__/
