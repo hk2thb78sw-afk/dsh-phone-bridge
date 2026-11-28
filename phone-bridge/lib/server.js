@@ -9,7 +9,7 @@ import { qrSvg } from './qr.js';
 import { scanLan } from './scan.js';
 
 // 插件版本，跟 package.json 同步；用来核对「正在运行的到底是哪一版」。
-export const BRIDGE_VERSION = '0.3.3';
+export const BRIDGE_VERSION = '0.3.4';
 
 const HOP_BY_HOP = new Set([
   'connection',

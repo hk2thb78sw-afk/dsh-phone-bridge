@@ -7,7 +7,7 @@ $ErrorActionPreference = 'Stop'
 $root = $PSScriptRoot
 $dist = Join-Path $root 'dist'
 $staging = Join-Path $dist 'staging'
-$version = '0.3.3'
+$version = '0.3.4'
 $zipName = "dsh-phone-bridge-$version.zip"
 
 if (Test-Path $staging) { Remove-Item $staging -Recurse -Force }
